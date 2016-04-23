@@ -1,0 +1,19 @@
+[core]
+    excludesfile = ~/.gitexcludes
+	editor = subl -n -w
+[user]
+	name = Dane Podzkiewitz
+	email = dane.podzkiewitz@gmail.com
+[alias]
+	co = checkout
+	st = status
+	co = checkout
+	ci = commit
+
+	# Always be verbose when adding stuff
+	add = add -v
+
+	# Go back to the last working commit
+	fuck = reset --hard HEAD
+[push]
+	default = current
