@@ -21,3 +21,27 @@ for file in $files; do
     mv ~/$file $olddir
     ln -s $dir/$file ~/$file
 done
+
+# OS specific settings
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+        # Linux
+        echo "Linux";
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+        # Mac OSX
+        ./.osx.sh
+elif [[ "$OSTYPE" == "cygwin" ]]; then
+        # POSIX compatibility layer and Linux environment emulation for Windows
+        echo "Cygwin";
+elif [[ "$OSTYPE" == "msys" ]]; then
+        # Lightweight shell and GNU utilities compiled for Windows (part of MinGW)
+        echo "MinGW";
+elif [[ "$OSTYPE" == "win32" ]]; then
+        # I'm not sure this can happen.
+        echo "Windows";
+elif [[ "$OSTYPE" == "freebsd"* ]]; then
+        # ...
+        echo "FreeBSD"
+else
+        # Unknown.
+        echo "Unknown";
+fi
