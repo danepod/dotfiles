@@ -304,10 +304,7 @@ defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnab
 ###############################################################################
 # Spotlight                                                                   #
 ###############################################################################
-
-# Disable Spotlight
-sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
-
+«
 # Hide Spotlight tray-icon (and subsequent helper)
 sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 
@@ -431,13 +428,13 @@ defaults write com.twitter.twitter-mac AutomaticQuoteSubstitutionEnabled -bool f
 defaults write com.twitter.twitter-mac MenuItemBehavior -int 1
 
 # Open links in the background
-defaults write com.twitter.twitter-mac openLinksInBackground -bool true
+defaults write com.twitter.twitter-mac openLinksInBackground -bool false
 
 # Allow closing the ‘new tweet’ window by pressing `Esc`
 defaults write com.twitter.twitter-mac ESCClosesComposeWindow -bool true
 
 # Hide the app in the background if it’s not the front-most window
-defaults write com.twitter.twitter-mac HideInBackground -bool true
+defaults write com.twitter.twitter-mac HideInBackground -bool false
 
 ###############################################################################
 # Spectacle.app                                                               #

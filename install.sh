@@ -22,6 +22,9 @@ for file in $files; do
     ln -s $dir/$file ~/$file
 done
 
+# Install ohmyzsh plugins
+git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
 # OS specific settings
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
         # Linux
