@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/dane/.oh-my-zsh
+export ZSH=/Users/danepodzkiewitz/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -32,7 +32,7 @@ ZSH_THEME="agnoster"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git command-not-found debian zsh-autosuggestions)
 
-# User configuration
+## User configuration
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -49,9 +49,32 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# Example aliases
+
+## Aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Set default user name for the Agnoster theme
-DEFAULT_USER="dane"
+## Functions
+
+# `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
+# the `.git` directory, listing directories first. The output gets piped into
+# `less` with options to preserve color and line numbers, unless the output is
+# small enough for one screen.
+function tre() {
+	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+}
+
+
+# OS specific
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  # Set default user name for the Agnoster theme
+  DEFAULT_USER="dane"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  # Set default user name for the Agnoster theme
+  DEFAULT_USER="danepodzkiewitzprivat"
+  
+  # Open man page as PDF
+  function manpdf() {
+    man -t "${1}" | open -f -a /Applications/Preview.app/
+  }
+fi
