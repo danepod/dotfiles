@@ -32,6 +32,19 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
         # Mac OSX
         ./.osx.sh
+        
+        # Install homebrew
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        brew tap caskroom/cask
+        brew install brew-cask
+        brew tap caskroom/versions
+
+        # Install CLI applications
+        brew install node git
+
+        # Install GUI applications
+        brew cask install alfred chrome dropbox firefox spotify sublime-text3 virtualbox vlc
+
 elif [[ "$OSTYPE" == "cygwin" ]]; then
         # POSIX compatibility layer and Linux environment emulation for Windows
         echo "Cygwin";
