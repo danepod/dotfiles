@@ -41,9 +41,6 @@ elif [[ "$OSTYPE" == "msys" ]]; then
 elif [[ "$OSTYPE" == "win32" ]]; then
         # I'm not sure this can happen.
         echo "Windows";
-elif [[ "$OSTYPE" == "freebsd"* ]]; then
-        # ...
-        echo "FreeBSD"
 else
         # Unknown.
         echo "Unknown";
