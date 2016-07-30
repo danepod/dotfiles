@@ -17,13 +17,16 @@ mkdir -p $olddir
 echo "Moving any existing dotfiles in homedir to $olddir directory, then create symlinks"
 cd $dir
 for file in $files; do
-    echo "$file"
-    mv ~/$file $olddir
-    ln -s $dir/$file ~/$file
+    if [[ "$file" != ".osx.sh" ]]; then
+        echo "$file"
+        mv ~/$file $olddir 2>/dev/null
+        ln -s $dir/$file ~/$file
+    fi
 done
 
+
 # Install ohmyzsh plugins
-git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH/plugins/zsh-autosuggestions
 
 # OS specific settings
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
@@ -32,7 +35,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
         # Mac OSX
         ./.osx.sh
-        
+
         # Install homebrew
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
         brew tap caskroom/cask

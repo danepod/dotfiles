@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/danepodzkiewitz/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -72,7 +72,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   # Set default user name for the Agnoster theme
   DEFAULT_USER="danepodzkiewitzprivat"
-  
+
   # Open man page as PDF
   function manpdf() {
     man -t "${1}" | open -f -a /Applications/Preview.app/
